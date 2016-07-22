@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Social App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/app.css">
+</head>
+<body ng-app = 'app'>
+    <div class="container">
+        <div ng-controller="PostsCtrl">
+        <h6>Enter a new post: </h6>
+
+        <input ng-model="postBody" type="text" class="form-control">
+        <button ng-click="addPost()" class="btn btn-default" >Add Post</button>
+
+        <h1>Recent Posts</h1>
+
+            <ul class="list-group" >
+                <li class="list-group-item" ng-repeat="post in posts | orderBy: '-date'"><strong>{{post.username}}</strong> <span>{{post.body}}</span></li>
+            </ul>
+        </div>
+    </div>
+    <script src="https://code.angularjs.org/1.4.12/angular.js"></script>
+    <script src="/app.js"></script>
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>-->
+</body>
+</html>
